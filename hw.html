@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My website</title>
+    <style>
+        .tag{
+            color: black;
+            font-weight: normal;
+            text-decoration: none; 
+        }
+        .tag-selected{
+            color: red;
+            font-weight: bolder;
+            text-decoration: underline; 
+        }
+        .selectedPage{
+            display:block ;
+        }
+        .normal{
+            display:none;
+        }
+    </style>
+</head>
+<h3>
+    標籤選單測試
+</h3>
+<body>
+    <div>
+        <span 
+        onclick="changeToProfile()" 
+        id="profile"
+        class="tag-selected">
+            Profile 
+        </span>
+        <span id="experience" onclick="changeToExperience()">Experience</span>
+        <span id="project" onclick="changeToProject()">Project</span>
+    </div>
+
+    <div id="pageOfProfile" class="selectedPage" >
+        <input type="text" />
+        <input type="button" value="Page Search" id="button">
+    </div>
+
+    <div id="pageOfExperience" class="normal" >
+        這裡是我的經歷請參考
+    </div>
+
+    <div id="pageOfProject" class="normal" >
+        我的破東西
+    </div>
+    <script>
+        //全域變數(大家都可以用)
+        let profile=document.querySelector("#profile")
+        let experience=document.querySelector("#experience")
+        let btn=document.querySelector("#button")
+        let project=document.querySelector("#project")
+        function changeToProfile(){
+            profile.className="tag-selected"
+            experience.className="tag"
+            project.className="tag"
+            btn.value="To experience"
+            pageOfProfile.className="selectedPage"
+            pageOfExperience.className="normal"
+            pageOfProject.className="normal"
+        }
+        function changeToExperience(){
+            experience.className="tag-selected"
+            profile.className="tag"
+            project.className="tag"
+            btn.value="To project"
+            pageOfProfile.className="normal"
+            pageOfExperience.className="selectedPage"
+            pageOfProject.className="normal"
+        }
+        function changeToProject(){
+            profile.className="tag"
+            experience.className="tag"
+            project.className="tag-selected"
+            btn.value="Home"
+            pageOfProfile.className="normal"
+            pageOfExperience.className="normal"
+            pageOfProject.className="selectedPage"
+        }
+    </script>
+    
+</body>
+</html>
