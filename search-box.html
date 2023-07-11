@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Box</title>
+    <style>
+        .tag{
+            color: black;
+            font-weight: normal;
+            text-decoration: none; 
+        }
+        .tag-selected{
+            color: red;
+            font-weight: bolder;
+            text-decoration: underline; 
+        }
+    </style>
+</head>
+<h3>
+    今天要來介紹搜尋的功用
+</h3>
+<body>
+    <div>
+        <span 
+        onclick="changeToPage()" 
+        id="page"
+        class="tag-selected">
+            Page 
+        </span>
+        <span id="image" onclick="changeToImage()">Image</span>
+        <span id="gpt" onclick="changeToGPT()">GPT</span>
+    </div>
+    <div>
+        <input type="text" />
+        <input type="button" value="Page Search" id="button">
+    </div>
+    <script>
+        //全域變數(大家都可以用)
+        let page=document.querySelector("#page")
+        let img=document.querySelector("#image")
+        let btn=document.querySelector("#button")
+        let gpt=document.querySelector("#gpt")
+        function changeToImage(){
+            page.className="tag"
+            img.className="tag-selected"
+            gpt.className="tag"
+            btn.value="Image Search"
+        }
+        function changeToPage(){
+            page.className="tag-selected"
+            img.className="tag"
+            gpt.className="tag"
+            btn.value="Page Search"
+        }
+        function changeToGPT(){
+            page.className="tag"
+            img.className="tag"
+            gpt.className="tag-selected"
+            btn.value="GPT"
+        }
+    </script>
+    
+</body>
+</html>
