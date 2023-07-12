@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖曳 Drag and drop</title>
+</head>
+<style>
+    .box{
+        width: 200px; height: 150px; background-color: red;
+        position:fixed; left: 0px; top: 0px;
+    }
+    .head{
+        height: 30px;background-color: blue;
+    }
+</style>
+<body>
+    <div id="box" class="box">
+        <div class="head" id="head"></div>
+    </div>
+
+    <script>
+        let box = document.querySelector("#box")
+        let move = function(e){//讓方塊跟滑鼠跑
+            //console.log(e.clientX,e.clientY)
+            box.style.left=e.clientX-20+"px"
+            box.style.top=e.clientY-20+"px"
+        }
+        let down=function(){
+            document.addEventListener("mousemove",move)
+            box.style.opacity='20%'
+        }
+        head.addEventListener("mousedown",down)
+        let up=function(){
+            document.removeEventListener("mousemove",move)
+            box.style.opacity='100%'
+        }
+        box.addEventListener("mouseup",up)
+        
+        //console.log(box)
+    </script>
+</body>
+</html>

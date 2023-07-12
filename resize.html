@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更改區塊的大小</title>
+</head>
+<style>
+    .layout{
+        display: flex; height: 500px;
+    }
+    .left{
+        width: 50%; background-color: blue;
+    }
+    .middle{
+        width: 10px; background-color: green;
+        cursor: w-resize;
+    }
+    .right{
+        flex: auto; background-color: red;
+    }
+</style>
+<body>
+    <div class="layout">
+        <div class="left" id="left"></div>
+        <div class="middle" id="bar"></div>
+        <div class="right"></div>
+    </div>
+
+    <script>
+        let bar = document.querySelector("#bar")
+        let left = document.querySelector("#left")
+
+        let move = function(e){//讓方塊跟滑鼠跑
+            //console.log(e.clientX,e.clientY)
+            left.style.width=e.clientX-15+"px"
+        }
+        let down=function(){
+            document.addEventListener("mousemove",move)
+            bar.style.opacity='20%'
+            bar.style.cursor="w-resize"
+        }
+        bar.addEventListener("mousedown",down)
+
+        let up=function(){
+            //console.log(555)
+            document.removeEventListener("mousemove",move)
+            bar.style.opacity='100%'
+        }
+        document.addEventListener("mouseup",up)
+        
+        //console.log(box)
+        
+    </script>
+</body>
+</html>

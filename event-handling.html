@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件處理</title>
+</head>
+<body>
+    <h3>事件處理</h3>
+    <span 
+        onclick="console.log('我被點了')"
+        ondblclick="console.log('雙擊')"
+        onmouseover="console.log('移入')"
+        onmouseout="console.log('移出')"
+        onmousedown="console.log('按下')"
+        onmouseup="console.log('放開')"
+        onmousemove="console.log('移動')"
+    >測試</span>
+    <span
+        id="button1"
+        onmouseover="over(this)"
+        onmouseout="out(this)"
+        onmousedown="this.style.backgroundColor='grey'"
+        onmouseup="this.style.backgroundColor='white';"
+
+    >按鈕</span>
+    <button>另一個按鈕</button>
+    <script>
+        function over(target){
+            //console.log(target.style)
+            target.style.color='red'
+            target.style.cursor='pointer'
+        }
+        function out(target){
+            target.style.color='black'
+            //target.style.cursor='pointer'
+        }
+    </script>
+    
+    
+</body>
+</html>

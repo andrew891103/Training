@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling by JavaSript</title>
+</head>
+<body>
+    <h3>用JavaScript做事件處理</h3>
+    <!--<button 
+        onclick="console.log('點擊')"
+        onmouseover="this.style.color='red'"
+        onmouseout="this.style.color='black'">
+        小按鈕
+    </button>-->
+    <button id="btn">按鈕</button>
+    <script>
+        //事件處理三要素 觸發事件的標籤 事件的種類 事件的處理
+        let btn = document.querySelector("#btn")
+        //漂籤物件.addEventListener("事件名稱的種類,事件處理事件")
+        
+        let clkHandler=function(e){
+            console.log(e.clientX,e.clientY)
+            //console.log(e)
+            if(e.altKey){
+                btn.removeEventListener("click",clkHandler)
+            }
+            //btn.removeEventListener("click",clkHandler)
+        }
+        let mouseoverHandler=function(){
+            btn.style.color="red"
+            btn.style.cursor="pointer"
+        }
+        let mouseoutHandler=function(){
+            btn.style.color="black"
+        }
+        btn.addEventListener("click",clkHandler)
+        
+        btn.addEventListener("mouseover",mouseoverHandler)
+        btn.addEventListener("mouseout",mouseoutHandler)
+        /*
+            瀏覽器如何做事件處理
+                1.瀏覽器偵測到使用者觸發點擊事件
+                2.收集與事件相關的資料,建立一個事件物件(Event Object)
+                    let eventObect = 事件物件();
+                3.呼叫事件處理函式,將Event Object 透過第一個參數傳入
+                    clickHandler(eventObject)
+        */
+    </script>   
+</body>
+</html>
