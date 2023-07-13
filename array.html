@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陣列物件 Array</title>
+</head>
+<body>
+    <h3>陣列物件的練習</h3>
+    <div>
+        班上有幾位同學 <input type="text" id="input"/>
+    </div>
+    <div>班上總平均是 <span id="avg"></span> </div>
+    <button onclick="execute()" id="start">開始</button>
+    <script>
+        let input = document.querySelector("#input")
+        let n = parseInt(input.value)
+        
+        function start(){
+            for(let i=0;i<n;i++){
+                
+            }
+        }
+        function execute(){
+            // 陣列:特殊的物件，按照順序存放資料
+            //建立陣列 > 使用陣列
+            //建立一個空白的陣列[]
+            let grade=[];
+            let avg=0;
+            //let n =parseInt( prompt("學生的數量","20"));
+            
+            for(let i=0;i<n;i++){
+                grade[i]=parseInt(prompt("輸入學生的成績","100"));
+                avg=avg+grade[i];
+            }
+            avg=avg/(grade.length);
+            console.log(avg);
+            document.querySelector("#avg").innerHTML=avg;
+
+        }
+    </script>
+</body>
+</html>

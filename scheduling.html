@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduling 排程</title>
+</head>
+<body>
+    <h3>排程工具</h3>
+    <div id="timer">3</div>
+    <script>
+        // 每隔一段時間之後，執行一段程式碼 winow.setInterval(函式,函秒數)
+        // 等待一段時間之後，執行一個程式碼 window.setTimeout(函式,毫秒數)
+        /*
+        function countdown(){
+            //console.log("RUN")
+            let timer= document.querySelector("#number")
+            number.innerHTML=timer.innerHTML-1
+            window.setTimeout(countdown,1000)
+            if(timer.innerHTML>=0){
+                window.setTimeout(countdown,1000)
+            }else{
+                timer.innerHTML="時間到"
+                //window.location.href="https://www.google.com.tw"
+            }
+        
+        }
+        */
+        //Asynchronous 非同步的程式碼
+        //window.setTimeout(countdown,1000)
+        //console.log("After Scheduling")
+    function countdown(){
+        //console.log("RUN")
+        let timer= document.querySelector("#timer")
+        timer.innerHTML=timer.innerHTML-1
+        //window.setInterval(countdown,1000)
+        if(timer.innerHTML<=0){
+            //timer.innerHTML="時間到"
+            //window.location.href="https://www.google.com.tw"
+            alert("生日快樂")
+            window.clearInterval(num)
+            
+        }
+    }
+    let num=window.setInterval(countdown,1000)
+    console.log(num)
+    </script>
+</body>
+</html>

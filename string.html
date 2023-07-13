@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+<body>
+    <h3>字串物件</h3>
+    <input type="text" id="input" value="Hello"/>
+    <button onclick="check()">測試</button>
+    <div id="message"></div>
+    <script>
+        function check(){
+            let input=document.querySelector("#input");
+            let text=input.value;
+            if(text==""){
+                message.innerHTML="您忘記填寫了"
+            }else if(text.indexOf("fuck")>=0){
+                message.innerHTML="您使用了不雅字"
+            }else{
+                message.innerHTML="OKOK"
+            }
+            //console.log(text)
+            //let text =new String("Hello")+" "+new String("World")
+            //""是簡寫 本質上還是一個物件
+            /*
+            console.log("取得字串的長度",text.length)
+            console.log("取得字串的第二個字元",text.charAt(1))
+            console.log("全部變大寫",text.toUpperCase())
+            console.log("取得子字串",text.substring(1,4))
+            console.log("搜尋字串中是否包含abc",text.indexOf("abc"))
+            console.log("搜尋字串中是否包含ell",text.indexOf("ll"))
+            */
+        }
+    </script>
+    
+</body>
+</html>
