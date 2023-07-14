@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX / XHR/ Fetch</title>
+</head>
+<body>
+    <h3>前後端互動測試</h3>
+    <button onclick="getData()">取得資料</button>
+    <div id="result"></div>
+    <script>
+        function getData(){
+            //使用內建的fetch()函式連線到網址,取得回應
+            /*
+                fetch(網址).then(function(response){
+                    return response.json();
+                }).then(function(data){
+                    //這裡取得最後的JSON格式的資料
+                    console.log(data);
+                })
+            */
+           // CWB-3B520BD8-02DD-486B-ADA9-8DDB8F0BE009
+           //https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0001-001?Authorization=CWB-3B520BD8-02DD-486B-ADA9-8DDB8F0BE009
+           //https://cwpeng.github.io/live-records-samples/data/products.json
+           let src="https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-3B520BD8-02DD-486B-ADA9-8DDB8F0BE009"
+            fetch(src).then(function(response){
+                //console.log(response)
+                return response.json();
+            }).then(function(data){
+                //這裡取得最後的JSON格式的資料
+                console.log(data);
+                let cities=[];
+                let minT=[];
+                let maxT=[];
+                let n = data.records.location.length;
+                //以下把資料呈現在資畫面上
+                //console.log("台北的最低溫",data.records.location[5].weatherElement[2].time[2].parameter.parameterName)
+                for(let i=0; i<n;i++){
+                    cities[i]=data.records.location[i].locationName;
+                    minT[i]=data.records.location[i].weatherElement[2].time[0].parameter.parameterName
+                    maxT[i]=data.records.location[i].weatherElement[4].time[0].parameter.parameterName
+                    result.innerHTML=result.innerHTML+cities[i]+minT[i]+"~"+maxT[i]+"<br\>"
+                }
+
+                /*
+                let result= document.querySelector("#result")
+                for(let i =0;i<data.length;i++){
+                    result.innerHTML=result.innerHTML+
+                        "<div>"+data[i].name+":"+data[i].price+"<\div>"
+                }
+                */
+               /*
+                let minT= data.records.location[5].weatherElement[2].time[2].parameter.parameterName;
+                let result= document.querySelector("#result")
+                */
+                
+            });
+            
+            
+        }
+    </script>
+</body>
+</html>
